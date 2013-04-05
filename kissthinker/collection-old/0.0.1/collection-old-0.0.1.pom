@@ -417,7 +417,7 @@
     
     <distributionManagement>
         <repository>
-            <id>internal.repo</id>
+            <id>kissthinker.mvn.repo</id>
             <name>Temporary Staging Repository</name>
             <url>file://${user.home}/mvn-repo</url>
         </repository>
