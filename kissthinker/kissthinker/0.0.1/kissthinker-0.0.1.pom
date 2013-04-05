@@ -150,7 +150,7 @@ http://stackoverflow.com/questions/14013644/hosting-a-maven-repository-on-github
                 <configuration>
                     <message>Maven artifacts for ${project.version}</message> <!-- git commit message -->
                     <noJekyll>true</noJekyll> <!-- disable webpage processing -->
-                    <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> <!-- matches distribution management repository url -->
+                    <outputDirectory>${user.home}/mvn-repo</outputDirectory> <!-- matches distribution management repository url -->
                     <branch>refs/heads/mvn-repo</branch> <!-- remote branch name -->
                     
                     <includes>
@@ -403,9 +403,9 @@ http://stackoverflow.com/questions/14013644/hosting-a-maven-repository-on-github
     
     <distributionManagement>
         <repository>
-            <id>kissthinker.repo</id>
+            <id>kissthinker.mvn.repo</id>
             <name>Temporary Staging Repository</name>
-            <url>file://${project.build.directory}/mvn-repo</url>
+            <url>file://${user.home}/mvn-repo</url>
         </repository>
     </distributionManagement>
     
