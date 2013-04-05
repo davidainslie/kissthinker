@@ -405,7 +405,7 @@ http://stackoverflow.com/questions/14013644/hosting-a-maven-repository-on-github
         <repository>
             <id>kissthinker.mvn.repo</id>
             <name>Temporary Staging Repository</name>
-            <url>${user.home}/mvn-repo</url>
+            <url>file://${user.home}/mvn-repo</url>
         </repository>
     </distributionManagement>
     
