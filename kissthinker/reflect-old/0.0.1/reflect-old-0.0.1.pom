@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!-- 
-Excellent page that allowed me to get Git and Maven working together.
+Excellent page that allowed my to get Git and Maven working together.
 http://stackoverflow.com/questions/14013644/hosting-a-maven-repository-on-github/14013645#14013645
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -10,7 +10,7 @@ http://stackoverflow.com/questions/14013644/hosting-a-maven-repository-on-github
   
     <modelVersion>4.0.0</modelVersion>
     <groupId>kissthinker</groupId>
-    <artifactId>kissthinker</artifactId>
+    <artifactId>reflect-old</artifactId>
     <name>${project.artifactId}</name>
     <url>http://www.kissthinker.com</url>
     
@@ -18,7 +18,7 @@ http://stackoverflow.com/questions/14013644/hosting-a-maven-repository-on-github
     <version>0.0.1</version>
     
     <!-- pom, jar, war, ear, rar, sar, or har -->
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
     
     <developers>
         <developer>
@@ -34,15 +34,14 @@ http://stackoverflow.com/questions/14013644/hosting-a-maven-repository-on-github
         
         <!-- github server corresponds to entry in ~/.m2/settings.xml -->
         <github.global.server>github</github.global.server>
-        
+    
         <java.version>1.7</java.version>
         <javaee.version>6.0</javaee.version>        
         <aspectj.version>1.7.0</aspectj.version>
         <cglib.version>2.2.2</cglib.version>
         <slf4j.version>1.7.1</slf4j.version>
         <logback.version>1.0.6</logback.version>
-        <junit.version>4.10</junit.version>
-        <mycila.version>1.4.ga</mycila.version>        
+        <junit.version>4.10</junit.version>        
         <mockito.version>1.8.4</mockito.version>
         <hamcrest.version>1.3</hamcrest.version>
         <apache.commons.lang.version>3.1</apache.commons.lang.version>        
@@ -50,7 +49,19 @@ http://stackoverflow.com/questions/14013644/hosting-a-maven-repository-on-github
         <guava.version>r09</guava.version>               
     </properties>    
 
-    <dependencies>
+    <repositories>
+        <repository>
+            <id>kissthinker.mvn.repo</id>
+            <url>https://raw.github.com/davidainslie/kissthinker/mvn-repo/</url>
+            
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+    
+    <dependencies>        
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
@@ -98,12 +109,6 @@ http://stackoverflow.com/questions/14013644/hosting-a-maven-repository-on-github
             <scope>test</scope>
         </dependency>                   
         
-        <dependency>
-            <groupId>com.mycila</groupId>
-            <artifactId>mycila-junit</artifactId>
-            <version>${mycila.version}</version>
-        </dependency>
-
         <!-- At some point unit tests (and even integration tests) need mocking capabilities -->
         <dependency>
             <groupId>org.mockito</groupId>
@@ -124,7 +129,7 @@ http://stackoverflow.com/questions/14013644/hosting-a-maven-repository-on-github
             <artifactId>commons-lang3</artifactId>
             <version>${apache.commons.lang.version}</version>
         </dependency>
-        
+
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-io</artifactId>
@@ -134,13 +139,13 @@ http://stackoverflow.com/questions/14013644/hosting-a-maven-repository-on-github
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>14.0.1</version>
+            <version>${guava.version}</version>
         </dependency>                        
     </dependencies>
 
     <build>
-        <finalName>${project.groupId}.${project.artifactId}-${project.version}</finalName>
-
+        <finalName>${project.groupId}.${project.artifactId}-${project.version}</finalName>        
+  
         <plugins>
             <plugin>
                 <groupId>com.github.github</groupId>
@@ -172,7 +177,7 @@ http://stackoverflow.com/questions/14013644/hosting-a-maven-repository-on-github
                     </execution>
                 </executions>
             </plugin>
-            
+        
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
@@ -363,7 +368,7 @@ http://stackoverflow.com/questions/14013644/hosting-a-maven-repository-on-github
             </plugins>
         </pluginManagement>
     </build>
-    
+        
     <profiles>
         <profile>
             <id>integration</id>
@@ -399,11 +404,11 @@ http://stackoverflow.com/questions/14013644/hosting-a-maven-repository-on-github
                 </plugins>
             </build>
         </profile>
-    </profiles>
+    </profiles>    
     
     <distributionManagement>
         <repository>
-            <id>kissthinker.mvn.repo</id>
+            <id>internal.repo</id>
             <name>Temporary Staging Repository</name>
             <url>file://${user.home}/mvn-repo</url>
         </repository>
