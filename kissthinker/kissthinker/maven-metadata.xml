@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
   <groupId>kissthinker</groupId>
-  <artifactId>collection-old</artifactId>
+  <artifactId>kissthinker</artifactId>
   <versioning>
     <release>0.0.1</release>
     <versions>
       <version>0.0.1</version>
     </versions>
-    <lastUpdated>20130405140939</lastUpdated>
+    <lastUpdated>20130405000528</lastUpdated>
   </versioning>
 </metadata>

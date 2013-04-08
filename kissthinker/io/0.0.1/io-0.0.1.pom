@@ -6,7 +6,7 @@
   
     <modelVersion>4.0.0</modelVersion>
     <groupId>kissthinker</groupId>
-    <artifactId>collection-old</artifactId>
+    <artifactId>io</artifactId>
     <name>${project.artifactId}</name>
     <url>http://www.kissthinker.com</url>
     
@@ -30,8 +30,6 @@
         
         <!-- github server corresponds to entry in ~/.m2/settings.xml -->
         <github.global.server>github</github.global.server>
-        
-        <kissthinker.reflect.version>0.0.1</kissthinker.reflect.version>
         
         <java.version>1.7</java.version>
         <javaee.version>6.0</javaee.version>        
@@ -59,13 +57,7 @@
         </repository>
     </repositories>    
     
-    <dependencies>
-        <dependency>
-            <groupId>kissthinker</groupId>
-            <artifactId>reflect-old</artifactId>
-            <version>${kissthinker.reflect.version}</version>
-        </dependency>
-                
+    <dependencies>     
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
@@ -146,11 +138,6 @@
             <version>${op4j.version}</version>
         </dependency>                        
     </dependencies>
-
-    <dependencyManagement>
-        <dependencies>            
-        </dependencies>
-    </dependencyManagement>
 
     <build>
         <finalName>${project.groupId}.${project.artifactId}-${project.version}</finalName>
