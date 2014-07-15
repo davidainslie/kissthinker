@@ -4,7 +4,7 @@ KISS Thinker
 Maven parent project to KISS Thinker subprojects
 ------------------------------------------------
 
-Built with the following technologies:
+Application built with the following technologies:
 
 - Java 1.7
 
@@ -13,4 +13,4 @@ Built with the following technologies:
 Introduction
 ------------
 
-Top level parent POM.
+Top level parent POM with common dependencies and plugin configurations for Java KISS Thinker applications.
